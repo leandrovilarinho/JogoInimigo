@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b45jog3e2132n"]
+
+[ext_resource type="Texture2D" uid="uid://dau5qwtqytnrf" path="res://assets/tilesheet_complete.png" id="1_jbohn"]
+
+[node name="Sofa3Lugares" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_jbohn")
+region_enabled = true
+region_rect = Rect2(896, 1024, 192, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+scale = Vector2(0.997025, 1)
+polygon = PackedVector2Array(-55.1641, -29, 56.1671, -28, 68.2029, -25, 76.2267, -19, 80.2387, -13, 87.2596, -1, 87.2596, 23, 84.2506, 28, 78.2327, 29, 73.2178, 28, 69.2059, 24, 69.2059, 21, -68.2029, 21, -70.2088, 25, -75.2238, 29, -82.2446, 29, -87.2596, 24, -87.2596, 0, -81.2417, -13, -76.2267, -19, -67.1999, -25)

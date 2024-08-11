@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://l23awce2h4jl"]
+
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_6xcwt"]
+[ext_resource type="Texture2D" uid="uid://c5bn1hovl76lr" path="res://assets/spritesheet_characters.png" id="1_hlpye"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y2l0r"]
+height = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytoq6"]
+radius = 235.359
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_6xcwt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 0)
+texture = ExtResource("1_hlpye")
+region_enabled = true
+region_rect = Rect2(167, 0, 48, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_y2l0r")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(30, 10)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ytoq6")
+debug_color = Color(0.956863, 0.109804, 0.45098, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
